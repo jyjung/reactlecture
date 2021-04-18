@@ -43,17 +43,19 @@
                             }
                         })
                     }
+                    this.input.focus();
                 }
                 onChange = (e) => {
                     this.setState({ value: e.target.value})
                 }
-                
+                onRefInput = (c) => { this.input = c;};
+                input; 
                 render() {
                     return (
                         <React.Fragment>
                             <div>{this.state.first}곱하기{this.state.second}는?</div>
                             <form onSubmit={this.onSubmit}>
-                                <input type="number" value={this.state.value} 
+                                <input  ref= {this.onRefInput} type="number" value={this.state.value} 
                                 onChange= {this.onChange} />
                                 <button> 입력 ! </button>
                             </form>
@@ -64,7 +66,7 @@
             }
         </script>
         <script type="text/babel">
-            ReactDOM.render(<div><GuGuDan /> </div>,document.querySelector('#root')); 
+            ReactDOM.render(<div><GuGuDan /> <GuGuDan /> <GuGuDan /> </div>,document.querySelector('#root')); 
         </script>
     </body>
 </html>
